@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show/Hide & Toggle CSS Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .highlight {
+            background-color: yellow;
+            color: red;
+            font-weight: bold;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px 0;
+        }
+        #message {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Show/Hide Elements & Toggle CSS Classes</h2>
+
+<p id="text1">This is a paragraph that can be shown or hidden.</p>
+<p id="text2">This paragraph can be highlighted dynamically.</p>
+
+<button onclick="toggleVisibility()">Show/Hide Paragraph 1</button>
+<button onclick="toggleHighlight()">Toggle Highlight for Paragraph 2</button>
+
+<div id="message">Actions will be reflected above.</div>
+
+<script>
+    // Show/hide element using class toggle
+    function toggleVisibility() {
+        const para1 = document.getElementById("text1");
+        para1.classList.toggle("hidden");
+
+        const message = document.getElementById("message");
+        if (para1.classList.contains("hidden")) {
+            message.innerHTML = "Paragraph 1 is now hidden.";
+        } else {
+            message.innerHTML = "Paragraph 1 is now visible.";
+        }
+    }
+
+    // Toggle CSS class dynamically
+    function toggleHighlight() {
+        const para2 = document.getElementById("text2");
+        para2.classList.toggle("highlight");
+
+        const message = document.getElementById("message");
+        if (para2.classList.contains("highlight")) {
+            message.innerHTML = "Paragraph 2 is highlighted.";
+        } else {
+            message.innerHTML = "Paragraph 2 highlight removed.";
+        }
+    }
+</script>
+
+</body>
+</html>

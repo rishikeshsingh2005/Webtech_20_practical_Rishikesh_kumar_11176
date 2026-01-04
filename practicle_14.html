@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation Using JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 6px;
+            width: 250px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .success {
+            color: green;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Form Validation Demo</h2>
+
+<form onsubmit="return validateForm()">
+    <label>Name:</label><br>
+    <input type="text" id="name" oninput="validateName()">
+    <div id="nameError" class="error"></div>
+
+    <br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email" oninput="validateEmail()">
+    <div id="emailError" class="error"></div>
+
+    <br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<div id="result"></div>
+
+<script>
+    function validateName() {
+        let name = document.getElementById("name").value;
+        let nameError = document.getElementById("nameError");
+
+        if (name.length < 3) {
+            nameError.innerHTML = "Name must be at least 3 characters.";
+            return false;
+        } else {
+            nameError.innerHTML = "";
+            return true;
+        }
+    }
+
+    function validateEmail() {
+        let email = document.getElementById("email").value;
+        let emailError = document.getElementById("emailError");
+
+        if (!email.includes("@")) {
+            emailError.innerHTML = "Enter a valid email address.";
+            return false;
+        } else {
+            emailError.innerHTML = "";
+            return true;
+        }
+    }
+
+    function validateForm() {
+        let isNameValid = validateName();
+        let isEmailValid = validateEmail();
+
+        if (isNameValid && isEmailValid) {
+            document.getElementById("result").innerHTML =
+                "<p class='success'>Form submitted successfully!</p>";
+            return false; // prevent actual submission (demo purpose)
+        } else {
+            document.getElementById("result").innerHTML =
+                "<p class='error'>Please fix the errors above.</p>";
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

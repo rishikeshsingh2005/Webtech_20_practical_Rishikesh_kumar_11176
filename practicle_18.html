@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Element Manipulation Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px 0;
+        }
+        ul {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            list-style-type: square;
+        }
+        li {
+            padding: 4px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>DOM Element Creation & Manipulation</h2>
+
+<ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+
+<input type="text" id="itemInput" placeholder="Enter new item" />
+<br>
+<button onclick="addItem()">Add Item</button>
+<button onclick="removeItem()">Remove Last Item</button>
+<button onclick="modifyItem()">Modify First Item</button>
+
+<div id="output">Actions will be displayed here.</div>
+
+<script>
+    const list = document.getElementById("myList");
+    const output = document.getElementById("output");
+    const input = document.getElementById("itemInput");
+
+    // Append a new child node
+    function addItem() {
+        const newItemText = input.value.trim();
+        if (newItemText === "") {
+            output.innerHTML = "⚠️ Please enter a value to add.";
+            return;
+        }
+        const li = document.createElement("li"); // create new li element
+        li.textContent = newItemText; // set text
+        list.appendChild(li); // append to the list
+        output.innerHTML = `✅ Added: "${newItemText}"`;
+        input.value = "";
+    }
+
+    // Remove the last child node
+    function removeItem() {
+        if (list.lastElementChild) {
+            const removed = list.lastElementChild.textContent;
+            list.removeChild(list.lastElementChild);
+            output.innerHTML = `❌ Removed: "${removed}"`;
+        } else {
+            output.innerHTML = "⚠️ No items to remove.";
+        }
+    }
+
+    // Modify the first child node
+    function modifyItem() {
+        if (list.firstElementChild) {
+            const oldValue = list.firstElementChild.textContent;
+            list.firstElementChild.textContent = "Modified Item";
+            output.innerHTML = `✏️ Changed first item from "${oldValue}" to "Modified Item"`;
+        } else {
+            output.innerHTML = "⚠️ No items to modify.";
+        }
+    }
+</script>
+
+</body>
+</html>

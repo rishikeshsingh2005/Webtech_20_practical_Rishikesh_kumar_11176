@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Drawing Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        canvas {
+            border: 2px solid #000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Canvas Drawing: Shapes and Colors</h2>
+
+<canvas id="myCanvas" width="400" height="300"></canvas>
+
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Draw a rectangle
+    ctx.fillStyle = "lightblue"; // fill color
+    ctx.fillRect(20, 20, 100, 60); // x, y, width, height
+    ctx.strokeStyle = "blue"; // border color
+    ctx.strokeRect(20, 20, 100, 60);
+
+    // Draw a circle
+    ctx.beginPath();
+    ctx.arc(200, 50, 40, 0, 2 * Math.PI); // x, y, radius, startAngle, endAngle
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+
+    // Draw a triangle
+    ctx.beginPath();
+    ctx.moveTo(100, 150); // starting point
+    ctx.lineTo(50, 250);
+    ctx.lineTo(150, 250);
+    ctx.closePath(); // close the triangle
+    ctx.fillStyle = "lightgreen";
+    ctx.fill();
+    ctx.strokeStyle = "green";
+    ctx.stroke();
+
+    // Draw a line
+    ctx.beginPath();
+    ctx.moveTo(220, 150);
+    ctx.lineTo(350, 250);
+    ctx.strokeStyle = "purple";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+</script>
+
+</body>
+</html>

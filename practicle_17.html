@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Listener Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px 0;
+        }
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            margin: 15px 0;
+            text-align: center;
+            line-height: 150px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Event Listeners Demo</h2>
+
+<div id="box">Click Me</div>
+
+<input type="text" id="inputField" placeholder="Type something..." />
+
+<button id="addMouse">Add Mouse Click Listener</button>
+<button id="removeMouse">Remove Mouse Click Listener</button>
+<button id="addKey">Add Keyboard Listener</button>
+<button id="removeKey">Remove Keyboard Listener</button>
+
+<div id="output">Event messages will appear here.</div>
+
+<script>
+    const box = document.getElementById("box");
+    const input = document.getElementById("inputField");
+    const output = document.getElementById("output");
+
+    // Mouse click event handler
+    function handleBoxClick() {
+        output.innerHTML = "✅ Box clicked! Mouse event triggered.";
+    }
+
+    // Keyboard event handler
+    function handleKeyPress(event) {
+        output.innerHTML = `⌨️ You pressed: "${event.key}"`;
+    }
+
+    // Add event listeners
+    document.getElementById("addMouse").addEventListener("click", () => {
+        box.addEventListener("click", handleBoxClick);
+        output.innerHTML = "Mouse click listener added to the box.";
+    });
+
+    document.getElementById("removeMouse").addEventListener("click", () => {
+        box.removeEventListener("click", handleBoxClick);
+        output.innerHTML = "Mouse click listener removed from the box.";
+    });
+
+    document.getElementById("addKey").addEventListener("click", () => {
+        input.addEventListener("keydown", handleKeyPress);
+        output.innerHTML = "Keyboard listener added to the input field.";
+    });
+
+    document.getElementById("removeKey").addEventListener("click", () => {
+        input.removeEventListener("keydown", handleKeyPress);
+        output.innerHTML = "Keyboard listener removed from the input field.";
+    });
+</script>
+
+</body>
+</html>

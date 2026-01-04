@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Function & Scope Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 8px 12px;
+            margin-bottom: 10px;
+        }
+        #output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<h2>User-Defined Function & Scope Demonstration</h2>
+
+<button onclick="scopeDemo()">Run Demo</button>
+
+<div id="output"></div>
+
+<script>
+    // Global scope
+    var globalVar = "I am a global var";
+
+    function scopeDemo() {
+        let result = "";
+
+        // Function scope
+        var functionVar = "I am function-scoped (var)";
+        let functionLet = "I am block-scoped (let)";
+        const functionConst = "I am block-scoped (const)";
+
+        result += "<b>Inside Function:</b><br>";
+        result += globalVar + "<br>";
+        result += functionVar + "<br>";
+        result += functionLet + "<br>";
+        result += functionConst + "<br><br>";
+
+        // Block scope
+        if (true) {
+            var blockVar = "var inside block";
+            let blockLet = "let inside block";
+            const blockConst = "const inside block";
+
+            result += "<b>Inside Block:</b><br>";
+            result += blockVar + "<br>";
+            result += blockLet + "<br>";
+            result += blockConst + "<br><br>";
+        }
+
+        result += "<b>After Block:</b><br>";
+        result += blockVar + "<br>";
+        result += "blockLet and blockConst are NOT accessible here<br>";
+
+        document.getElementById("output").innerHTML = result;
+    }
+
+    // Invoking a user-defined function
+    scopeDemo();
+</script>
+
+</body>
+</html>

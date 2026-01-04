@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Styles Demo</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 20px;
+    }
+    h1 {
+      color: darkblue;
+      text-align: center;
+    }
+    p {
+      color: #333;
+      line-height: 1.6;
+    }
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Inline CSS -->
+  <h1 style="color: crimson; font-size: 2.5em;">CSS Styling Methods</h1>
+
+  <section>
+    <h2>Inline CSS</h2>
+    <p style="color: green; font-style: italic;">
+      This paragraph uses <strong>inline CSS</strong> to make the text green and italic.
+    </p>
+  </section>
+
+  <section>
+    <h2>Internal CSS</h2>
+    <p class="highlight">
+      This paragraph is styled using <strong>internal CSS</strong> defined in the &lt;style&gt; block.
+    </p>
+  </section>
+
+  <section>
+    <h2>External CSS</h2>
+    <p class="external-demo">
+      This paragraph will be styled using <strong>external CSS</strong> from the linked <code>styles.css</code> file.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 CSS Demo Page</p>
+  </footer>
+</body>
+</html>'

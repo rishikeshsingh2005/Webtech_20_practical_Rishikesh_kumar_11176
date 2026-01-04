@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px 0;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<h2>DOM Manipulation Using JavaScript</h2>
+
+<p id="para1">This is a paragraph with <b>getElementById()</b> demo.</p>
+<p class="para2">This is a paragraph with <b>querySelector()</b> demo.</p>
+
+<button onclick="changeById()">Change Text Using getElementById()</button>
+<button onclick="changeByQuery()">Change Text Using querySelector()</button>
+<button onclick="appendContent()">Append Content Using innerHTML</button>
+
+<div id="output">Output will appear here.</div>
+
+<script>
+    // Using getElementById()
+    function changeById() {
+        let para = document.getElementById("para1");
+        para.innerHTML = "✅ Text changed using <b>getElementById()</b>!";
+        document.getElementById("output").innerHTML = "getElementById() changed the first paragraph.";
+    }
+
+    // Using querySelector()
+    function changeByQuery() {
+        let para = document.querySelector(".para2");
+        para.innerHTML = "✅ Text changed using <b>querySelector()</b>!";
+        document.getElementById("output").innerHTML = "querySelector() changed the paragraph with class 'para2'.";
+    }
+
+    // Using innerHTML to append content
+    function appendContent() {
+        let outputDiv = document.getElementById("output");
+        outputDiv.innerHTML += "<br>✨ Content appended using innerHTML!";
+    }
+</script>
+
+</body>
+</html>
